@@ -97,7 +97,9 @@ const createShortURL = async function (req, res) {
   } catch (err) {
     return res.status(500).send({ status: false, messgae: err.messgae });
   }
-};
+};           
+
+
 
 //-------------------------------------get Long URL-------------------------------------
 const getURL = async function (req, res) {
@@ -131,7 +133,4 @@ const getURL = async function (req, res) {
   }
 };
 
-module.exports = {
-  createShortURL,
-  getURL,
-};
+module.exports = { createShortURL,getURL};
