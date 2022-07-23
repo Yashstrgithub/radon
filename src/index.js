@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 mongoose
   .connect(
-    "mongodb+srv://jai84322:Bing%401234%23@demo.3li78.mongodb.net/group64Database?retryWrites=true&w=majority",
+    "mongodb+srv://functionup-cohort:Cy1gBvGK84qPiPyJ@cluster0.sngd6.mongodb.net/group64Database",
     {
       useNewUrlParser: true,
     }

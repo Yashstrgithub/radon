@@ -6,12 +6,12 @@ const { promisify } = require("util");
 
 //Connect to redis
 const redisClient = redis.createClient(
-  15839,
-  "redis-15839.c301.ap-south-1-1.ec2.cloud.redislabs.com",
+  11735,
+  "redis-11735.c264.ap-south-1-1.ec2.cloud.redislabs.com",
   { no_ready_check: true }
 );
 
-redisClient.auth("rF7jSTe0P11DGm2oYI8SD4A4xyzSsJZn", function (err) {
+redisClient.auth("GhZeHY4CyxaU95sYM4PhAZg7rlrBJKSw", function (err) {
   if (err) throw err;
 });
 
@@ -73,6 +73,7 @@ const createShortURL = async function (req, res) {
       let checkURL = await urlModel
         .findOne({ longUrl: longUrl })
         .select({ _id: 0, __v: 0 });
+        console.log(checkURL);
 
       if (!checkURL) {
         obj.longUrl = longUrl;
@@ -134,3 +135,23 @@ const getURL = async function (req, res) {
 };
 
 module.exports = { createShortURL,getURL};
+
+
+
+//  GET API
+// const getURL=async function(req,res){
+//   try{
+//     const urlCode=req.params.urlCode;
+//     const isUrl=await urlModel.findOne({urlCode:urlCode})
+//     console.log(isUrl)
+//     if(!isUrl) return res.status(400).send({status:false,message:"url not found"});
+//     if(isUrl){
+//       return res.redirect(isUrl.longUrl)
+
+//     }else{
+//       return res.status(404).send({status:false,message:"url not found"});
+//     }
+//   }catch(err){
+//     return res.status(500).send({status:false,message:err.message})
+//   }
+// }
